@@ -1,39 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ==========================================================================
-  // 1. GESTIONE TEMA (DARK / LIGHT MODE)
-  // ==========================================================================
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const sunIcon = document.getElementById('sun-icon');
-  const moonIcon = document.getElementById('moon-icon');
-  const themeToggleText = document.getElementById('theme-toggle-text');
-
-  // Recupera il tema salvato o usa quello preferito dal sistema
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  const initialTheme = savedTheme || 'light';
-  setTheme(initialTheme);
-
-  themeToggleBtn.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-  });
-
-  function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    
-    if (theme === 'dark') {
-      sunIcon.classList.remove('hidden');
-      moonIcon.classList.add('hidden');
-      themeToggleText.textContent = 'Light Theme';
-    } else {
-      sunIcon.classList.add('hidden');
-      moonIcon.classList.remove('hidden');
-      themeToggleText.textContent = 'Dark Theme';
-    }
-  }
+  // Remove any legacy theme settings and enforce light mode
+  localStorage.removeItem('theme');
+  document.documentElement.removeAttribute('data-theme');
 
   // ==========================================================================
   // 2. FILTRI & RICERCA DENTRO LE PUBBLICAZIONI
