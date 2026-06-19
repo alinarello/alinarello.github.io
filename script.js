@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (theme === 'dark') {
       sunIcon.classList.remove('hidden');
       moonIcon.classList.add('hidden');
-      themeToggleText.textContent = 'Tema Chiaro';
+      themeToggleText.textContent = 'Light Theme';
     } else {
       sunIcon.classList.add('hidden');
       moonIcon.classList.remove('hidden');
-      themeToggleText.textContent = 'Tema Scuro';
+      themeToggleText.textContent = 'Dark Theme';
     }
   }
 
